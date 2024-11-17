@@ -41,70 +41,19 @@ struct ContentView: View {
                         .font(.largeTitle)
                         .foregroundStyle(.white)
                     HStack {
-                        VStack {
-                            HStack {
-                                Image(sourceCurrency.image)
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(height: 33)
-                                Text(sourceCurrency.name)
-                                    .font(.headline)
-                                    .foregroundStyle(.white)
-                            }
-                            .popoverTip(CurrencyTip(), arrowEdge: .top)
-                            TextField("Amount", text: $leftAmount)
-                                .textFieldStyle(.roundedBorder)
-                                .keyboardType(.decimalPad)
-                                .focused($leftTyping)
-                                .toolbar {
-                                    ToolbarItem(placement: .keyboard) {
-                                        Button("Done") {
-                                            leftTyping = false
-                                        }
-                                    }
-                                }
-                        }
-                        .padding(.bottom, -5)
-                        .onTapGesture {
-                            showSelectCurrency.toggle()
-                        }
+                        CurrencyColumn(textAlignment: TextAlignment.leading, currency: $sourceCurrency, amount: $leftAmount, showSelectCurrency: $showSelectCurrency, isTyping: _leftTyping)
 
                         Image(systemName: "equal")
                             .font(.largeTitle)
                             .foregroundStyle(.white)
                             .symbolEffect(.pulse)
-                        VStack {
-                            HStack {
-                                Text(destinationCurrency.name)
-                                    .font(.headline)
-                                    .foregroundStyle(.white)
-                                Image(destinationCurrency.image)
-                                    .resizable()
-                                    .scaledToFit()
-                                    .frame(height: 33)
-                            }
-                            TextField("Amount", text: $rightAmount)
-                                .textFieldStyle(.roundedBorder)
-                                .keyboardType(.decimalPad)
-                                .multilineTextAlignment(.trailing)
-                                .focused($rightTyping)
-                                .toolbar {
-                                    ToolbarItem(placement: .keyboard) {
-                                        Button("Done") {
-                                            rightTyping = false
-                                        }
-                                    }
-                                }
-                        }
 
-                        .padding(.bottom, -5)
-                        .onTapGesture {
-                            showSelectCurrency.toggle()
-                        }
+                        CurrencyColumn(textAlignment: TextAlignment.trailing, currency: $destinationCurrency, amount: $rightAmount, showSelectCurrency: $showSelectCurrency, isTyping: _rightTyping)
                     }
                     .padding()
                     .background(.black.opacity(0.5))
                     .clipShape(.capsule)
+                    .popoverTip(CurrencyTip(), arrowEdge: .top)
 
                     Spacer()
 
