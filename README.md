@@ -1,6 +1,8 @@
 # LOTRConverter
 
-LOTRConverter is the first project in the ["iOS 18, SwiftUI 6, & Swift 6: Build iOS Apps From Scratch"](iOS 18, SwiftUI 6, & Swift 6: Build iOS Apps From Scratch) course by Kenneth Jones.
+LOTRConverter is the first project in the [iOS 18, SwiftUI 6, & Swift 6: Build iOS Apps From Scratch](https://www.udemy.com/course/ios-15-app-development-with-swiftui-3-and-swift-5/) course by Kenneth Jones.
+
+The app converts between various fictional currencies related to The Lord of the Rings. Although the core functionality is small, it sparked my interest in SwiftUI and iOS development. I can't wait to work on bigger projects with actual value. 😄
 
 Its premise is to introduce various SwiftUI features, like
 
